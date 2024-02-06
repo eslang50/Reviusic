@@ -13,8 +13,6 @@ app.use("/", router);
 const HOSTNAME = '0.0.0.0';
 const PORT = 3000;
 
-// app.get("/", (req, res) => {res.sendFile(path.resolve() + "/index.html")});
-
 app.listen(PORT, () => {
   console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
 })
