@@ -2,6 +2,7 @@ import express from 'express';
 import cors from "cors";
 import helmet from "helmet";
 import router from './api/routes/routes.js';
+import path from 'path';
 
 const app = express();
 
@@ -10,7 +11,10 @@ app.use(helmet());
 app.use(express.json());
 app.use("/", router);
 
-const HOSTNAME = '0.0.0.0';
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+app.use(express.static(path.join(__dirname, 'public')));
+
+const HOSTNAME = 'localhost';
 const PORT = 3000;
 
 app.listen(PORT, () => {
